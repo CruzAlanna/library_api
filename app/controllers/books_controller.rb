@@ -11,4 +11,13 @@ class BooksController < ApplicationController
     puts "---"
     render json: book
   end
+
+  def create
+    puts "-----------------------"
+    puts params
+    puts "-----------------------"
+    book = Book.new(name: params[:name], pages: params[:pages], author_id: params[:author_id])
+    book.save
+    render json: book
+  end
 end

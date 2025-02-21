@@ -11,4 +11,13 @@ class AuthorsController < ApplicationController
     puts "---"
     render json: author
   end
+
+  def create
+    puts "-----------------------"
+    puts params
+    puts "-----------------------"
+    author = Author.new(name: params[:name])
+    author.save
+    render json: author
+  end
 end
