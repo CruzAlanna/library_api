@@ -30,4 +30,11 @@ class BooksController < ApplicationController
     )
     render json: book
   end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    books = Book.all
+    render json: books
+  end
 end

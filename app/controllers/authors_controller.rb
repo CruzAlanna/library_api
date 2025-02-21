@@ -28,4 +28,11 @@ class AuthorsController < ApplicationController
     )
     render json: author
   end
+
+  def destroy
+    author = Author.find(params[:id])
+    author.destroy
+    authors = Author.all
+    render json: authors
+  end
 end
