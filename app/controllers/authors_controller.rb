@@ -20,4 +20,12 @@ class AuthorsController < ApplicationController
     author.save
     render json: author
   end
+
+  def update
+    author = Author.find(params[:id])
+    author.update(
+      name: params[:name]
+    )
+    render json: author
+  end
 end

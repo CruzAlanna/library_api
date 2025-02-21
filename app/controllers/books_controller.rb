@@ -20,4 +20,14 @@ class BooksController < ApplicationController
     book.save
     render json: book
   end
+
+  def update
+    book = Book.find(params[:id])
+    book.update(
+      name: params[:name],
+      pages: params[:pages],
+      author_id: params[:author_id]
+    )
+    render json: book
+  end
 end
